@@ -5,7 +5,7 @@ public class Perso : MonoBehaviour {
 	public float speed = 10f;	// Player Speed
 
 	void Start(){
-		GetComponent<Transform>().position = Save.Load ();	// Calls for lastest saved position
+		GetComponent<Transform>().position = Save.LoadPosition ();	// Calls for lastest saved position
 	}
 
 	// Update is called once per frame
