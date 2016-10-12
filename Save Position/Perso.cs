@@ -5,7 +5,7 @@ public class Perso : MonoBehaviour {
 	public float speed = 10f;
 
 	void Start(){
-		Save.Load ();
+		GetComponent<Transform>().position = Save.Load ();
 	}
 
 	// Update is called once per frame
