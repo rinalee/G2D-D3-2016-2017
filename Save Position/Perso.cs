@@ -16,6 +16,10 @@ public class Perso : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			SaveAction ();
 		}
+		
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			Save.DeleteAllKeys ();
+		}
 	}
 
 	void SaveAction (){
