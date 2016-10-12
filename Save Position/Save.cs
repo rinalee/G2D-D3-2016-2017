@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Save {
 	
-	public static Vector3 Load(){	// Load Position & Sends back to Vector3
+	public static Vector3 LoadPosition(){	// Load Position & Sends back to Vector3
 		float x = PlayerPrefs.GetFloat ("posX");
 		float y = PlayerPrefs.GetFloat ("posY");
 		float z = PlayerPrefs.GetFloat ("posZ");
@@ -16,5 +16,9 @@ public class Save {
 		PlayerPrefs.SetFloat ("posY", positionPlayer.y);
 		PlayerPrefs.SetFloat ("posZ", positionPlayer.z);
 		Debug.Log ("Saved X : " + PlayerPrefs.GetFloat("posX") + " Saved Y : " + PlayerPrefs.GetFloat("posY") + " Saved Z : " + PlayerPrefs.GetFloat("posZ"));	// Show Saved Position in Debug Log
+	}
+	
+	public static void DeleteAllKeys(){
+		PlayerPrefs.DeleteAll();
 	}
 }
