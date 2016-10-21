@@ -1,14 +1,19 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Player : MonoBehaviour {
-	
-	// Update is called once per frame
+
+	Rigidbody rigidbody;	// Rigidbody Variable
+
+	void Start (){
+		rigidbody = GetComponent<Rigidbody> ();	// Initialize Rigidbody Variable
+	}
+
 	void Update () {
 		Movement ();	// Calls Movement Function
 	}
 
 	void Movement (){
-		Rigidbody rigidbody = GetComponent<Rigidbody> ();
+
 	}
 }
