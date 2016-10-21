@@ -3,7 +3,9 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 	public float speedFactor = 1f;
+	public float jumpForce = 10f;
 	Rigidbody rigidbody;	// Rigidbody Variable
+	public LayerMask layerMask;
 
 	void Start (){
 		rigidbody = GetComponent<Rigidbody> ();	// Initialize Rigidbody Variable
