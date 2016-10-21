@@ -2,14 +2,10 @@ using UnityEngine;
 using System.Collections;
 
 public class CameraFollow : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
+	GameObject focusPoint;
 	
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 }
