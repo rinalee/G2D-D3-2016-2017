@@ -21,7 +21,7 @@ public class Player : MonoBehaviour {
 		// Save player's Velocity in a variable
 		Vector3 velocity = rigidbody.velocity;
 		velocity.x = speedX;	// Apply speedX to Player's velocity
-		rigidbody.velocity = velocity;
+		rigidbody.velocity = velocity;	// Apply new Velocity to Rigidbody's Velocity
 
 	}
 }
