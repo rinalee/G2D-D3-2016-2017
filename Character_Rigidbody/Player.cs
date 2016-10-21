@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 public class Player : MonoBehaviour {
-
+	public float speedFactor = 1f;
 	Rigidbody rigidbody;	// Rigidbody Variable
 
 	void Start (){
@@ -11,6 +11,9 @@ public class Player : MonoBehaviour {
 
 	void Update () {
 		Movement ();	// Calls Movement Function
+		if (Input.GetButtonDown("Jump")){
+			Jump ();	//Call Jump Function
+		}
 	}
 
 	void Movement (){
@@ -23,5 +26,11 @@ public class Player : MonoBehaviour {
 		velocity.x = speedX;	// Apply speedX to Player's velocity
 		rigidbody.velocity = velocity;	// Apply new Velocity to Rigidbody's Velocity
 
+	}
+	
+	void Jump () {
+		Vector3 velocity = rigidbody.velocity;
+		velocity.y = jumpForce;	// Apply speedX to Player's velocity
+		rigidbody.velocity = velocity;	// Apply new Velocity to Rigidbody's Velocity
 	}
 }
