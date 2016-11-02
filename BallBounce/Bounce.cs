@@ -19,4 +19,16 @@ public class Spawn : MonoBehaviour {
 			}
 		}
 	}
+
+	void Update (){
+		if (Input.GetKeyDown(KeyCode.Space)){
+			ChangeColor();
+		}
+	}
+
+	void ChangeColor(){
+		for (int i = 0; i < listBalle.Count; i++) {
+			listBalle [i].GetComponent<Renderer> ().material.color = Color.gray;
+		}
+	}
 }
