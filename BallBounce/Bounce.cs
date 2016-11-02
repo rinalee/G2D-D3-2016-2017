@@ -28,7 +28,15 @@ public class Spawn : MonoBehaviour {
 
 	void ChangeColor(){
 		for (int i = 0; i < listBalle.Count; i++) {
-			listBalle [i].GetComponent<Renderer> ().material.color = Color.gray;
+
+			bool randomColor = Random.Range (0f, 100f) > 20f;
+			if (randomColor == true) {
+				listBalle [i].GetComponent<Renderer> ().material.color = Color.gray;
+				listBalle [i].GetComponent<Rigidbody> ().isKinematic = false;
+			} else {
+				listBalle [i].GetComponent<Renderer> ().material.color = Color.black;
+				listBalle [i].GetComponent<Rigidbody> ().isKinematic = true;
+			}
 		}
 	}
 }
