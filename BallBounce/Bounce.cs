@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Spawn : MonoBehaviour {
-
+	// Variables
 	public GameObject laBalle;
 	public List<GameObject> listBalle;
 
@@ -25,7 +25,7 @@ public class Spawn : MonoBehaviour {
 			ChangeColor();
 		}
 	}
-
+	// Random Color & Freeze RigidBody
 	void ChangeColor(){
 		for (int i = 0; i < listBalle.Count; i++) {
 
