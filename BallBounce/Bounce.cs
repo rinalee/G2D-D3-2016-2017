@@ -1,17 +1,20 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Spawn : MonoBehaviour {
 
 	public GameObject laBalle;
+	public List<GameObject> listBalle;
 
 	// Use this for initialization
 	void Start () {
+		listBalle = new List<GameObject>();
 		// LOOP
-		for (int i = 0; i < 10; i++) {
-			for (int j = 0; j < 10; j++) {
-				for (int k = 0; k < 10; k++) {
-					Instantiate(laBalle, new Vector3(i,j,k), Quaternion.identity);
+		for (int i = 0; i < 15; i++) {
+			for (int j = 0; j < 15; j++) {
+				for (int k = 0; k < 15; k++) {
+					listBalle.Add (Instantiate(laBalle, new Vector3(i,j,k), Quaternion.identity)as GameObject);
 				}
 			}
 		}
