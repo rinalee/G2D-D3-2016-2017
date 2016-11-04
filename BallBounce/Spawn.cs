@@ -4,13 +4,17 @@ using System.Collections.Generic;
 
 public class Spawn : MonoBehaviour {
 	// Variables
-	public GameObject laBalle;
-	public List<GameObject> listBalle = new List<GameObject>();
+	public GameObject laBall;
+	public List<GameObject> listBall = new List<GameObject>();
 	public List<List<Rewind>> memory = new List<List<Rewind>>();
 
 	public class Rewind{
 		public Vector3 position;
 		public Vector3 velocity;
+		public Rewind(Vector3 _position, Vector3 _velocity){
+			position = _position;
+			velocity = _velocity;
+			}
 	}
 
 	// Use this for initialization
@@ -22,7 +26,7 @@ public class Spawn : MonoBehaviour {
 		for (int i = 0; i < 10; i++) {
 			for (int j = 0; j < 10; j++) {
 				for (int k = 0; k < 10; k++) {
-					listBalle.Add (Instantiate(laBalle, new Vector3(i,j,k), Quaternion.identity)as GameObject);
+					listBall.Add (Instantiate(laBall, new Vector3(i,j,k), Quaternion.identity)as GameObject);
 				}
 			}
 		}
@@ -55,6 +59,16 @@ public class Spawn : MonoBehaviour {
 	IEnumerator WriteMemory (){
 		while (true){
 			print ("Writing");
+			// Create every balls' position & velocity list
+			List<Rewind> listRewind = new List<Rewind> ();
+			for (int i = 0; i < listBall.Count; i++) {
+				Vector3 position = listBall [i].transform.position;
+				Vector3 velocity = listBall [i].GetComponent<Rigidbody>().velocity;
+				listRewind.Add (new Rewind (position, velocity));
+			}
+
+
+			memory.Add (listRewind);
 			// Wait for the end of the frame to loop again
 			yield return null;
 		}
@@ -64,6 +78,7 @@ public class Spawn : MonoBehaviour {
 	IEnumerator ReadMemory (){
 		while (true){
 			print ("Reading");
+
 			// Wait for the end of the frame to loop again
 			yield return null;
 		}
@@ -76,14 +91,14 @@ public class Spawn : MonoBehaviour {
 //	}
 //			// Random Color & Freeze RigidBody
 //			void ChangeColor(){
-//		for (int i = 0; i < listBalle.Count; i++) {
+//		for (int i = 0; i < listBall.Count; i++) {
 //			bool randomColor = Random.Range (0f, 100f) > 20f;
 //			if (randomColor == true) {
-//				listBalle [i].GetComponent<Renderer> ().material.color = Color.gray;
-//				listBalle [i].GetComponent<Rigidbody> ().isKinematic = false;
+//				listBall [i].GetComponent<Renderer> ().material.color = Color.gray;
+//				listBall [i].GetComponent<Rigidbody> ().isKinematic = false;
 //			} else {
-//				listBalle [i].GetComponent<Renderer> ().material.color = Color.black;
-//				listBalle [i].GetComponent<Rigidbody> ().isKinematic = true;
+//				listBall [i].GetComponent<Renderer> ().material.color = Color.black;
+//				listBall [i].GetComponent<Rigidbody> ().isKinematic = true;
 //			}
 //		}
 //	}
