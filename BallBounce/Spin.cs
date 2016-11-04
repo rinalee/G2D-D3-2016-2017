@@ -7,6 +7,11 @@ public class Spin : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Rotate (Vector3.up, speed * Time.deltaTime);
+		if (Input.GetKey (KeyCode.Return)) {
+			transform.Rotate (Vector3.up, speed * Time.deltaTime);
+		}
+		else {
+			transform.Rotate (Vector3.down, speed * Time.deltaTime);
+		}
 	}
 }
