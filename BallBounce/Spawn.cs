@@ -58,7 +58,8 @@ public class Spawn : MonoBehaviour {
 	// Save lists
 	IEnumerator WriteMemory (){
 		while (true){
-			print ("Writing");
+			print ("Writing " + memory.Count);
+			// 0
 			// Create every balls' position & velocity list
 			List<Rewind> listRewind = new List<Rewind> ();
 			for (int i = 0; i < listBall.Count; i++) {
@@ -66,8 +67,8 @@ public class Spawn : MonoBehaviour {
 				Vector3 velocity = listBall [i].GetComponent<Rigidbody>().velocity;
 				listRewind.Add (new Rewind (position, velocity));
 			}
-
-
+			// yolo 1000
+			// Add to frame ALL informations
 			memory.Add (listRewind);
 			// Wait for the end of the frame to loop again
 			yield return null;
@@ -78,7 +79,12 @@ public class Spawn : MonoBehaviour {
 	IEnumerator ReadMemory (){
 		while (true){
 			print ("Reading");
-
+			List<Rewind> listRewind = memory [memory.Count - 1];
+			for (int i = 0; i < listBall.Count; i++) {
+				listBall [i].transform.position = listRewind [i].position;
+				listBall [i].GetComponent<Rigidbody>().velocity = listRewind [i].velocity;
+			}
+			memory.RemoveAt (memory.Count - 1);
 			// Wait for the end of the frame to loop again
 			yield return null;
 		}
